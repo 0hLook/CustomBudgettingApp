@@ -1,0 +1,8 @@
+Budget Web App made with the sole purpose of self use (made w/Claude)
+
+Feel free to use and run with Docker 
+|||
+VVV
+docker-compose up --build
+
+Run in root directory
