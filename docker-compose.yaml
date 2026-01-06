@@ -12,7 +12,6 @@ services:
       - budget-data:/app/data
     environment:
       - NODE_ENV=production
-      - JWT_SECRET=your-secure-secret-key-change-this
     restart: unless-stopped
     networks:
       - budget-network

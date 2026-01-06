@@ -1,8 +1,8 @@
-Budget Web App made with the sole purpose of self use (made w/Claude)
+Budget web app made with the sole purpose of self use (made w/Claude AI)
 
 Feel free to use and run with Docker 
 |||
 VVV
 docker-compose up --build
 
-Run in root directory
+CTRL + C for graceful shutdown
