@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: budget-tracker-backend
+    ports:
+      - "3001:3001"
+    volumes:
+      - budget-data:/app/data
+    environment:
+      - NODE_ENV=production
+      - JWT_SECRET=your-secure-secret-key-change-this
+    restart: unless-stopped
+    networks:
+      - budget-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - VITE_API_URL=http://localhost:3001/api
+    container_name: budget-tracker-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - budget-network
+
+volumes:
+  budget-data:
+    driver: local
+
+networks:
+  budget-network:
+    driver: bridge
